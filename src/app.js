@@ -31,10 +31,12 @@ app.use(
 
 import userRouter from "./routes/user.routes.js";
 import blogRouter from "./routes/blog.routes.js";
+import serviceRouter from "./routes/service.routes.js";
 
 //routes declaration
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/blog", blogRouter);
+app.use("/api/v1/service",serviceRouter)
 
 export { app };

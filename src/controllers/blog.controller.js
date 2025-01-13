@@ -18,7 +18,7 @@ const getAllBlogs = asyncHandler(async (req, res) => {
                 shortDesc: 1,
                 auther: 1,
                 isPublished: 1,
-                isPublished: 1,
+                
             },
         },
     ]);
@@ -50,9 +50,7 @@ const publishABlog = asyncHandler(async (req, res) => {
         throw new ApiError(400, "image file not found");
     }
 
-    if (!thumbnail) {
-        throw new ApiError(400, "Thumbnail not found");
-    }
+    
 
     const blog = await Blog.create({
         title,
