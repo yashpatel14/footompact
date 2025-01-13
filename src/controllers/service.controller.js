@@ -63,7 +63,7 @@ const publishService = asyncHandler(async (req, res) => {
 });
 
 const getServiceById = asyncHandler(async (req, res) => {
-    const { serviceId } = body.params;
+    const { serviceId } = req.params;
 
     if (!isValidObjectId(serviceId)) {
         throw new ApiError(400, "invalid serviceId");
