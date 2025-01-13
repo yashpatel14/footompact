@@ -44,7 +44,7 @@ const publishService = asyncHandler(async (req, res) => {
         throw new ApiError(400, "image file not found");
     }
 
-    const services = await Service.aggregate({
+    const services = await Service.create({
         title,
         description,
         image: imageFile.url,
