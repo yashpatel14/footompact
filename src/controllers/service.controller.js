@@ -32,7 +32,7 @@ const publishService = asyncHandler(async (req, res) => {
         throw new ApiError(400, "title and descrition are required");
     }
 
-    const imageLocalPath = req.file?.body;
+    const imageLocalPath = req.file?.path;
 
     if (!imageLocalPath) {
         throw new ApiError(400, "imageLocalPath required");
