@@ -6,7 +6,7 @@ import { Service } from "../models/service.model.js";
 import {
     deleteMediaFromCloudinary,
     uploadOnCloudinary,
-} from "../utils/cloudinary";
+} from "../utils/cloudinary.js";
 import { isValidObjectId } from "mongoose";
 
 const getAllService = asyncHandler(async (req, res) => {

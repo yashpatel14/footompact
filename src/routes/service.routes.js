@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
-import { deleteService, getAllService, getServiceById, publishService } from "../controllers/service.controller.js";
+import { deleteService, getAllService, getServiceById, publishService, updateService } from "../controllers/service.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
 
 
@@ -22,7 +22,7 @@ router
     .delete(deleteService)
     .patch(
         upload.single("image"),
-        updateBlog
+        updateService
     );
 
 export default router;
