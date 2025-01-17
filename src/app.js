@@ -36,6 +36,7 @@ import appointmentRouter from "./routes/appointment.routes.js";
 import landingRouter from "./routes/landing.routes.js";
 import contactRouter from "./routes/contact.routes.js";
 import frontRouter from "./routes/front.routes.js"
+import dashboardRouter from "./routes/dashboard.routes.js"
 
 //routes declaration
 
@@ -46,5 +47,6 @@ app.use("/api/v1/appointment", appointmentRouter);
 app.use("/api/v1/landing", landingRouter);
 app.use("/api/v1/contact", contactRouter);
 app.use("/api/v1/front", frontRouter);
+app.use("/api/v1/dashboard",dashboardRouter)
 
 export { app };
