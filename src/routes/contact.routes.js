@@ -11,6 +11,6 @@ router.use(verifyJWT);
 
 router.route("/").get(getAllContact);
 
-router.route("/c/:ContactId").delete(deleteContact);
+router.route("/c/:contactId").delete(deleteContact);
 
 export default router;
