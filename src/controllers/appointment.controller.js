@@ -2,7 +2,7 @@ import mongoose, { isValidObjectId } from "mongoose";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { ApiError } from "../utils/ApiError.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
-import { Appointment } from "../models/appointment.mode.js";
+import { Appointment } from "../models/appointment.model.js";
 
 const getAllAppointment = asyncHandler(async (req, res) => {
     const appointment = await Appointment.aggregate([
