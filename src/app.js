@@ -32,11 +32,17 @@ app.use(
 import userRouter from "./routes/user.routes.js";
 import blogRouter from "./routes/blog.routes.js";
 import serviceRouter from "./routes/service.routes.js";
+import appointmentRouter from "./routes/appointment.routes.js";
+import landingRouter from "./routes/landing.routes.js";
+import contactRouter from "./routes/contact.routes.js";
 
 //routes declaration
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/blog", blogRouter);
-app.use("/api/v1/service",serviceRouter)
+app.use("/api/v1/service", serviceRouter);
+app.use("/api/v1/appointment", appointmentRouter);
+app.use("/api/v1/landing", landingRouter);
+app.use("/api/v1/contact", contactRouter);
 
 export { app };
