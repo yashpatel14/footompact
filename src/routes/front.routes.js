@@ -1,10 +1,13 @@
 import { Router } from "express";
-import { insertAppointment, insertContact, insertLanding } from "../controllers/front.controller.js";
+import { frontGetAllBlog, frontGetBlogById, frontgetAllServices, insertAppointment, insertContact, insertLanding } from "../controllers/front.controller.js";
 
 const router = Router();
 
 router.route("/insertAppointment").post(insertAppointment);
 router.route("/insertContact").post(insertContact);
 router.route("/insertLanding").post(insertLanding);
+router.route("/frontGetAllBlog").get(frontGetAllBlog);
+router.route("/frontGetBlogById/b/:blogId").get(frontGetBlogById);
+router.route("/frontgetAllServices").get(frontgetAllServices);
 
 export default router

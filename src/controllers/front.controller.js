@@ -1,10 +1,11 @@
-import mongoose from "mongoose";
+import mongoose, { isValidObjectId } from "mongoose";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { Landing } from "../models/landing.model.js";
 import { Contact } from "../models/contact.model.js";
 import { Appointment } from "../models/appointment.model.js";
+import { Blog } from "../models/blog.model.js";
 
 const insertLanding = asyncHandler(async (req, res) => {
     const { name, phone, email, message } = req.body;
@@ -93,4 +94,65 @@ const insertContact = asyncHandler(async (req, res) => {
         );
 });
 
-export { insertLanding, insertAppointment, insertContact };
+const frontGetAllBlog = asyncHandler(async(req,res)=>{
+    const blog = await Blog.aggregate([
+        {
+            $match:{
+                isPublished:true
+            }
+        },
+        {
+            $project: {
+                title: 1,
+                image: 1,
+                description: 1,
+                shortDesc: 1,
+                auther: 1,
+                isPublished: 1,
+                
+            },
+        },
+    ]);
+
+    return res
+        .status(200)
+        .json(new ApiResponse(200, blog, "blogs fetched successfully"));
+})
+
+const frontGetBlogById = asyncHandler(async(req,res)=>{
+    const {blogId} = req.params;
+
+    if(!isValidObjectId(blogId)){
+        throw new ApiError(400,"blogId requred")
+    }
+
+    const blog = await Blog.aggregate([
+        {
+            $match: {
+                _id: new mongoose.Types.ObjectId(blogId),
+            },
+        },
+    ]);
+
+    return res
+        .status(200)
+        .json(new ApiResponse(200, blog, "Blog details fetched successfully"));
+})
+
+const frontgetAllServices = asyncHandler(async(req,res)=>{
+    const service = await Service.aggregate([
+        {
+            $project: {
+                title: 1,
+                description: 1,
+                image: 1,
+            },
+        },
+    ]);
+
+    return res
+        .status(200)
+        .json(new ApiResponse(200, service, "service fetched successfully"));
+})
+
+export { insertLanding, insertAppointment, insertContact,frontGetAllBlog,frontGetBlogById,frontgetAllServices };
