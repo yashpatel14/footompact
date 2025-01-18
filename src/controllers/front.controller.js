@@ -6,6 +6,7 @@ import { Landing } from "../models/landing.model.js";
 import { Contact } from "../models/contact.model.js";
 import { Appointment } from "../models/appointment.model.js";
 import { Blog } from "../models/blog.model.js";
+import { Service } from "../models/service.model.js";
 
 const insertLanding = asyncHandler(async (req, res) => {
     const { name, phone, email, message } = req.body;
