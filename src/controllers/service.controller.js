@@ -15,7 +15,7 @@ const getAllService = asyncHandler(async (req, res) => {
             $project: {
                 title: 1,
                 description: 1,
-                "image.url": 1,
+                image: 1,
             },
         },
     ]);
