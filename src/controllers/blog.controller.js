@@ -13,7 +13,7 @@ const getAllBlogs = asyncHandler(async (req, res) => {
         {
             $project: {
                 title: 1,
-                "image.url": 1,
+                image: 1,
                 description: 1,
                 shortDesc: 1,
                 auther: 1,
