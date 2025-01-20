@@ -26,7 +26,7 @@ const appointmentSchema = new Schema(
             required:true
         },
         issue:{
-            type:String,
+            type:[String],
             required:true
         }
     },{timestamps:true}

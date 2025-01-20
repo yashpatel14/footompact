@@ -36,7 +36,7 @@ const insertLanding = asyncHandler(async (req, res) => {
 const insertAppointment = asyncHandler(async (req, res) => {
     const { name, phone, email, message, issue } = req.body;
 
-    if (!name && !email && !phone && !message && !issue) {
+    if (!name && !email && !phone && !message && !Array.isArray(issue)) {
         throw new ApiError(
             400,
             "name,email,phone,issue and message is required"
