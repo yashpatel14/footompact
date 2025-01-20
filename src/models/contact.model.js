@@ -21,7 +21,7 @@ const contactSchema = new Schema(
             ],
         },
         message:{
-            type:String,
+            type:[String],
             required:true
         },
         issue:{
