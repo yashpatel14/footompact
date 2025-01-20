@@ -9,7 +9,6 @@ const appointmentSchema = new Schema(
         email:{
             type: String,
             required: [true, "Email is required"],
-            unique: true,
             trim: true,
             lowercase: true,
             match: [
