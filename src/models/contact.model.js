@@ -21,13 +21,13 @@ const contactSchema = new Schema(
             ],
         },
         message:{
-            type:[String],
-            required:true
-        },
-        issue:{
             type:String,
             required:true
-        }
+        },
+        issue: {
+            type: [String], // Correctly define as an array of strings
+            required: true,
+        },
     },{timestamps:true}
 );
 
